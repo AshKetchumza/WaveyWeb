@@ -6,6 +6,12 @@
         $urlRouterProvider.otherwise('/logIn');
 
         $stateProvider
+          .state('base', {
+            abstract: true,
+            url: '',
+            templateUrl: 'app//base/base.html'
+          })
+
           .state('dashboard', {
             url: '/dashboard',
             parent: 'base',
@@ -27,6 +33,7 @@
 
           .state('regions', {
           url: "/regions",
+          parent: 'dashboard',
           templateUrl: "app/regions/regions.html",
           controller: "RegionsController"
           })
